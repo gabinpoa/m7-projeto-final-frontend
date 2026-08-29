@@ -1,0 +1,11 @@
+<div class="lista-livros">
+  @if (livros.length === 0) {
+    <p>Nenhum livro encontrado.</p>
+  } @else {
+    <div class="livros-grid">
+      @for (livro of livros; track livro._id) {
+        <app-livro-card [livro]="livro"></app-livro-card>
+      }
+    </div>
+  }
+</div>

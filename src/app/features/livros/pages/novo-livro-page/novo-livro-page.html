@@ -1,0 +1,12 @@
+<div class="novo-livro-page">
+  <h1>Cadastrar Novo Livro</h1>
+  
+  @if (erro()) {
+    <div class="erro">{{ erro() }}</div>
+  }
+
+  <app-formulario-livro 
+    (salvar)="onSalvarLivro($event)" 
+    (cancelar)="onCancelar()">
+  </app-formulario-livro>
+</div>

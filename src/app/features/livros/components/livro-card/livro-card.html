@@ -1,0 +1,11 @@
+<div class="livro-card">
+  <h3>{{ livro.titulo }}</h3>
+  <p><strong>Autor:</strong> {{ livro.autor }}</p>
+  <p><strong>Categoria:</strong> {{ livro.categoria }}</p>
+  <p><strong>Ano:</strong> {{ livro.ano }}</p>
+  <p><strong>Status:</strong> {{ livro.status }}</p>
+  @if (livro.descricao) {
+    <p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+  }
+  <button [routerLink]="['/livros', livro._id]">Ver Detalhes</button>
+</div>

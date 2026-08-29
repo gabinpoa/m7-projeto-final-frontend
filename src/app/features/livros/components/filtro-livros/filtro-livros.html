@@ -1,0 +1,28 @@
+<div class="filtro-livros">
+  <div class="filtro-item">
+    <label for="search">Buscar:</label>
+    <input 
+      type="text" 
+      id="search" 
+      [(ngModel)]="searchTerm" 
+      (input)="onSearchChange()"
+      placeholder="Buscar por título ou autor"
+    >
+  </div>
+  
+  <div class="filtro-item">
+    <label for="categoria">Categoria:</label>
+    <select 
+      id="categoria" 
+      [(ngModel)]="categoriaFilter" 
+      (change)="onCategoriaChange()"
+    >
+      <option value="">Todas</option>
+      <option value="Tecnologia">Tecnologia</option>
+      <option value="Ficção">Ficção</option>
+      <option value="Não-ficção">Não-ficção</option>
+      <option value="Romance">Romance</option>
+      <option value="História">História</option>
+    </select>
+  </div>
+</div>
