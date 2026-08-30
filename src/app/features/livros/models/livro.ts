@@ -7,4 +7,5 @@ export interface Livro {
   ano: number;
   status: string;
   descricao?: string;
+  googleBooksId?: string;
 }

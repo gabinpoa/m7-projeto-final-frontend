@@ -41,6 +41,17 @@
   border-color: #007bff;
 }
 
+.form-group input:invalid,
+.form-group select:invalid {
+  border-color: #dc3545;
+}
+
+.form-group input:invalid:focus,
+.form-group select:invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
 .form-actions {
   display: flex;
   gap: 12px;
@@ -73,4 +84,75 @@
 
 .btn-cancelar:hover {
   background-color: #5a6268;
+}
+
+.search-results {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.search-result-item {
+  padding: 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+  background-color: #f5f5f5;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.search-result-author {
+  font-size: 12px;
+  color: #666;
+}
+
+.form-group {
+  position: relative;
+}
+
+.search-loading {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-error {
+  position: absolute;
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #856404;
+  z-index: 1000;
+  width: 100%;
+  box-sizing: border-box;
 }

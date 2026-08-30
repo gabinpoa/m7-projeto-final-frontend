@@ -1,5 +1,10 @@
 <div class="livro-detalhe-page">
-  <h1>Detalhes do Livro</h1>
+  <div class="page-header">
+    <h1>Detalhes do Livro</h1>
+    @if (livro()?.googleBooksId) {
+      <span class="google-books-badge">Google Books</span>
+    }
+  </div>
   
   @if (erro()) {
     <div class="erro">{{ erro() }}</div>

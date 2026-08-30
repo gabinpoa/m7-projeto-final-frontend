@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed } from '@angular/core';
+import { Component, inject, signal, computed, effect } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Livro } from '../../models/livro';
@@ -28,10 +28,11 @@ export class LivroDetalhePage {
   editStatus = signal('');
   editDescricao = signal('');
 
-  constructor() {
-    this.id.set(this.route.snapshot.paramMap.get('id') || '');
+  loadLivroEffect = effect(() => {
+    const id = this.route.snapshot.paramMap.get('id') || '';
+    this.id.set(id);
     this.carregarLivro();
-  }
+  });
 
   carregarLivro() {
     this.livrosService.getLivroById(this.id()).subscribe({

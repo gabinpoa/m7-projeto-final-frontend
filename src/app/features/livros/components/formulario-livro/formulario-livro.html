@@ -1,16 +1,33 @@
 <div class="formulario-livro">
   <h2>Cadastrar Novo Livro</h2>
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" #livroForm="ngForm" #formElement>
     <div class="form-group">
       <label for="titulo">Título: *</label>
       <input 
         type="text" 
         id="titulo" 
         [value]="livro().titulo" 
-        (input)="updateField('titulo', $any($event.target).value)"
+        (input)="updateField('titulo', $any($event.target).value); onSearchInput($event)"
         name="titulo"
         required
+        placeholder="Digite para buscar no Google Books..."
       >
+      @if (isSearching()) {
+        <div class="search-loading">Buscando...</div>
+      }
+      @if (searchError()) {
+        <div class="search-error">{{ searchError() }}</div>
+      }
+      @if (showSearchResults() && searchResults().length > 0) {
+        <div class="search-results">
+          @for (book of searchResults(); track book.id) {
+            <div class="search-result-item" (click)="selectGoogleBook(book)">
+              <div class="search-result-title">{{ book.volumeInfo.title }}</div>
+              <div class="search-result-author">{{ book.volumeInfo.authors?.join(', ') || 'Autor desconhecido' }}</div>
+            </div>
+          }
+        </div>
+      }
     </div>
 
     <div class="form-group">

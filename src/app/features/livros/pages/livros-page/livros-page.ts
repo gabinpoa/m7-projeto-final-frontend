@@ -1,4 +1,4 @@
-import { Component, signal, computed, inject } from '@angular/core';
+import { Component, signal, computed, inject, effect } from '@angular/core';
 import { Livro } from '../../models/livro';
 import { LivrosService } from '../../services/livros.service';
 import { ListaLivros } from '../../components/lista-livros/lista-livros';
@@ -36,9 +36,9 @@ export class LivrosPage {
     });
   });
 
-  constructor() {
+  loadLivrosEffect = effect(() => {
     this.carregarLivros();
-  }
+  });
 
   carregarLivros() {
     this.livrosService.getLivros().subscribe({

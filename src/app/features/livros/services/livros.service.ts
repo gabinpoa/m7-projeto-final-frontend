@@ -30,4 +30,8 @@ export class LivrosService {
   deleteLivro(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  searchGoogleBooks(query: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/google-search?q=${encodeURIComponent(query)}`);
+  }
 }
